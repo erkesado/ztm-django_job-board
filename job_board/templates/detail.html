@@ -1,0 +1,18 @@
+{% extends "_base.html" %}
+{% load humanize %}
+
+{% block content %}
+  <div class="w-10/12 mx-auto">
+    <p class="pb-6">
+      <a href="{% url 'home' %}" class="border border-gray-400 rounded px-4 py-2 hover:bg-gray-200">
+        Go back
+      </a>
+    </p>
+    <h1 class="text-3xl font-semibold pb-4 underline underline-offset-8">
+      {{ job_post.title|title }}
+    </h1>
+    <p class="pb-2 text-xl">Company: {{ job_post.company }}</p>
+    <p class="pb-2 font-semibold">Salary: ${{ job_post.salary|intcomma }}</p>
+    <p>Description: {{ job_post.description|capfirst }}</p>
+  </div>
+{% endblock content %}
